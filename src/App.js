@@ -1,24 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Projects from "./components/Projects";
+import Profiles from "./components/Profiles";
+import Footer from "./components/Footer";
+import SayHi from "./components/SayHi";
+
+import AnimatedCursor from "react-animated-cursor";
 
 function App() {
+  let linkData = {
+    Home: "#Home",
+    Projects: "#projects",
+    Profiles: "#profiles",
+    "Say Hi!": "#sayhi",
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AnimatedCursor
+        innerSize={30}
+        outerSize={80}
+        color="255, 0, 0"
+        outerAlpha={0.3}
+        innerScale={0}
+        outerScale={1.5}
+        hasBlendMode={true}
+        outerStyle={{
+          mixBlendMode: "mixed",
+        }}
+        innerStyle={{
+          backgroundImage: "url('images/bg1.jpeg')",
+        }}
+        clickables={[
+          "a",
+          'input[type="text"]',
+          'input[type="email"]',
+          'input[type="number"]',
+          'input[type="submit"]',
+          'input[type="image"]',
+          "label[for]",
+          "select",
+          "textarea",
+          "button",
+          ".link",
+        ]}
+      />
+      <Navbar title={"Pawan Kushwah"} links={linkData} />
+      <Home />
+      <Projects />
+      <Profiles />
+      <SayHi />
+      <Footer />
+    </>
   );
 }
 
